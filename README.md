@@ -11,5 +11,5 @@ struct node*link;
 (here link is a pointer and we know pointer points to the same data types i.e int pointer points to only an int value and float pointer points to a float value
 similarly here link is made to point to a structure)
 };
-struct node*ptr;
-(now we want a pointer that would point to the very first node thus we use this statement to store the address of the bery first node)
+struct node *ptr;
+(now we want a pointer that would point to the very first node thus we use this statement to store the address of the very first node)
