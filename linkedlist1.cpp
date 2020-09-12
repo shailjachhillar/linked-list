@@ -4,10 +4,10 @@ struct node{
 	int data;
 	struct node*link;
 };
+// to display items of the linked list
 display(struct node**q)
 {
 	struct node*temp;
-//	temp=(struct node*)malloc(sizeof(struct node));
 	temp=*q;
 	printf(" \n YOUR DATA STORED TILL NOW IS : \n ");
 	if(temp==NULL)
@@ -24,6 +24,7 @@ display(struct node**q)
 		}
 	}
 }
+// to find the total number of nodes in a linked list
 int length(struct node **q)
 {
 	struct node*temp;
@@ -36,6 +37,37 @@ int length(struct node **q)
 	}
 	return count;
 }
+// to add a node at a specified position
+addinmiddle(struct node **q,int x)
+{
+	struct node *temp,*p;
+	int location,i=1,len;
+	
+	len=x;
+	printf("\n Enter the location at which you want to store the new node /n");
+	scanf("%d",&location);
+	if (location>len)
+	{
+		printf("\n INVALID INPUT");
+	}
+	else
+	{
+		p=*q;
+		temp->link=NULL;
+		
+		while(i<location)
+		{
+			p=p->link;
+			i++;
+		}
+		temp=(struct node*)malloc(sizeof(struct node));
+	printf("\n enter the data for new node \n");
+  	scanf("%d",&temp->data);
+	temp->link=p->link;
+	p->link=temp;
+	}
+}
+// to add the node at the beginning of the linked list
 addatbeg(struct node **q)
 {
 	struct node* temp;
@@ -55,6 +87,7 @@ addatbeg(struct node **q)
 	}
 	
 }
+// to add the node at the last of the linked list
 append(struct node **q)
 {
 	struct node*temp;
@@ -95,5 +128,8 @@ main()
 	x=length(&ptr);
 	printf(" \n Total node after addatbeg() = %d",x);
 	display(&ptr);
-	
+	addinmiddle(&ptr,x);
+	display(&ptr);
+	x=length(&ptr);
+	printf(" \n Total nodes after addinmiddle() = %d",x);
 }
